@@ -7,11 +7,11 @@ Feature: Show
                 Given I visit the main page
                 And my database has a year object 
                 Then year should have many events 
-                Then year should have one homicides 
                 Then year should have one production 
-                Then year should have one users
+                
+                # weekend tests
                 Then there should be an ajax call where the info received is the first year info
-                Then there should be a year counter for displaying total deaths
+                Then there should be a year counter for displaying total refugees
                 And as the new data comes in the counter number should go up
                 Then there should be a production counter for displaying total production
                 And as the new data comes in the counter number should go up
@@ -20,6 +20,8 @@ Feature: Show
                 Then there should be a year counter that checks the year being displayed
                 And number on the counter should be the number of the year
                 Then for each event on the year there should be a div displaying the synopsis
+
+
                 Then for each year there should be a bar chart displaying homicide numbers divided info per country
                 Then for each year there should be a bar chart displaying production numbers divided info per country
                 When year counter reaches a certain number 

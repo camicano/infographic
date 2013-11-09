@@ -3,7 +3,7 @@ Given(/^I visit the main page$/) do
 end
 
 And(/^my database has a year object$/) do
-  @y = Year.create(year: 1990)
+  @y = Year.create(year: 1990, homicide_rate: 200, )
   @y.year == 1990  
 end
 
@@ -14,29 +14,17 @@ Then(/^year should have many events$/) do
   @y.events.length == 2
 end
 
-Then(/^year should have one homicides$/) do
-  @y.homicide_rate = HomicideRate.new(total: 1231)
-
-  @y.homicide_rate.total ==  1231  
-end
-
 Then(/^year should have one production$/) do
   @y.cocaine_production = CocaineProduction.new(total: 1000)  
 
   @y.cocaine_production.total == 1000  
 end
 
-Then(/^year should have one users$/) do
-  @y.user_rate = UserRate.new(total: 124312)
-
-  @y.user_rate.total == 124312
-end
-
 Then(/^there should be an ajax call where the info received is the first year info$/) do
   find
 end
 
-Then(/^there should be a year counter for displaying total deaths$/) do
+Then(/^there should be a year counter for displaying total refugees$/) do
   sleep 10
   assert find('#deaths-counter').text == 0
 end
