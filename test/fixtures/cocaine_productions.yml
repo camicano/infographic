@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  bolivia: 1
+  colombia: 1
+  peru: 1
+  total: 1
+
+two:
+  bolivia: 1
+  colombia: 1
+  peru: 1
+  total: 1

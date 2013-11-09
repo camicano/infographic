@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  eu: 1
+  usa: 1
+  south_america: MyString
+  other: MyString
+  total: 1
+
+two:
+  eu: 1
+  usa: 1
+  south_america: MyString
+  other: MyString
+  total: 1
