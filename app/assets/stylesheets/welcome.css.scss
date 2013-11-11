@@ -13,6 +13,11 @@ nav span:hover {
 
 #year {
 	font-size: 10px;
+	width: 35px;
+}
+
+#year-axis {
+	display: inline;
 }
 
 div {
@@ -33,4 +38,21 @@ div span {
 
 .right {
 	float: right;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: 'white';
+  color: 'black';
+  border-radius: 2px;
+}
+
+.bar {
+	background: blue;
+}
+
+.bar:hover {
+	background: purple;
 }

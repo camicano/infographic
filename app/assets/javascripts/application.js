@@ -20,7 +20,8 @@ var refugee_count,
 	users_count,
 	number,
 	canvas1,
-	canvas2;
+	canvas2,
+	canvas3;
 
 function refugeeAxis(data){
 	canvas1.append("rect")
@@ -28,22 +29,48 @@ function refugeeAxis(data){
     .attr("y", 0)
     .attr("width", 30)
     .attr("fill", "orange")
+    .attr("height", 0)
 	.transition()
-    .duration(3000)
-    .ease("elastic")
+    .ease("easeOutCubic")
+    .duration(1000)
+
     .attr("height", (data.refugee_rate * 0.001));
 }
 
-function productionAxis(data){
-	canvas2.append("rect")
+function yearAxis(data){
+	canvas3.append('<div id="year">|'+ data.year +'|</div>');
+}
+
+function productionUseAxis(data){
+	var total = data.cocaine_production.total;
+	var col = data.cocaine_production.colombia;
+
+    canvas2.append("rect")
     .attr("x", number)
-    .attr("y", (300 - (data.cocaine_production.colombia * 0.2)))
-    .attr("width", 30)
+    .attr("y", 300)
+    .attr("width", 15)
     .attr("fill", "blue")
+    .attr('height', 0)
+    .attr("class", "bar")
+
     .transition()
-    .duration(3000)
-    .ease("elastic")
-    .attr("height", (300 - (data.cocaine_production.colombia * 0.2))); 
+    .delay(100)
+    .duration(1000)
+    .ease("easeOutCubic")
+    .attr("height", (300 - (total * 0.1)))
+    .attr("y", (300 - (total * 0.1) || 0));
+
+	canvas2.append("rect")
+    .attr("x", number + 15)
+    .attr("y", 300)
+    .attr("width", 15)
+    .attr("fill", "green")
+    .attr("height", 0)
+    .transition()
+    .duration(1000)
+    .ease("easeOutCubic")
+	.attr("y", (300 - (col * 0.1) || 0))
+    .attr("height", (300 - (col * 0.1)));
 }
 
 function ajaxCall(year){
@@ -68,14 +95,11 @@ function ajaxCall(year){
 			setTimeout(function(){
 				var year_count = data.year + 1;
 				ajaxCall(year_count);
-				number += 35;			
-				if(data.refugee_rate){
-					refugeeAxis(data);				
-				}
+				number += 35;	
+				yearAxis(data);		
+				refugeeAxis(data);	
+				productionUseAxis(data);	
 				
-				if(data.cocaine_production.total){
-					productionAxis(data);	
-				}
 			}, 500);
 		});
 	}
@@ -102,6 +126,8 @@ $(function(){
         .attr("width", 1000)
         .attr("height", 300);
 
+	canvas3 = $('#year-axis');
+
 	$.ajax({
 		url: '/years',
 		method: 'get',
@@ -122,14 +148,12 @@ $(function(){
 		setTimeout(function(){
 			var year_count = data.year + 1;
 			ajaxCall(year_count);
-			number = 35;
-			if(data.refugee_rate){
-				refugeeAxis(data);				
-			}
 
-			if(data.cocaine_production.total){
-				productionAxis(data);	
-			}
+			number = 0;
+			yearAxis(data);
+			refugeeAxis(data);			
+			productionUseAxis(data);	
+
 		}, 500); 
 	});
 });
