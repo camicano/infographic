@@ -1,25 +1,5 @@
 Year.delete_all
-
-a = Year.create(year: 1979)
-a.cocaine_production = CocaineProduction.new()
-
-b = Year.create(year: 1980)
-b.cocaine_production = CocaineProduction.new()
-
-c = Year.create(year: 1981)
-c.cocaine_production = CocaineProduction.new()
-
-d = Year.create(year: 1982)
-d.cocaine_production = CocaineProduction.new()
-
-e = Year.create(year: 1983)
-e.cocaine_production = CocaineProduction.new()
-
-f = Year.create(year: 1984)
-f.cocaine_production = CocaineProduction.new()
-
-g = Year.create(year: 1985)
-g.cocaine_production = CocaineProduction.new()
+	
 
 h = Year.create(year: 1986)
 h.cocaine_production = CocaineProduction.new(total: 710, bolivia: 220, colombia: 30, peru: 460)
@@ -69,7 +49,7 @@ v.cocaine_production = CocaineProduction.new(total: 770, bolivia: 80, colombia: 
 w = Year.create(year: 2001, homicide_rate: 27840, refugee_rate: 388894, user_rate: 266)
 w.cocaine_production = CocaineProduction.new(total: 1055, bolivia: 100, colombia: 700, peru: 255)
 
-x = Year.create(year: 2002, homicide_rate: 28837, refugee_rate: 44238, user_rate: 252)
+x = Year.create(year: 2002, homicide_rate: 28837, refugee_rate: 442380, user_rate: 252)
 x.cocaine_production = CocaineProduction.new(total: 975, bolivia: 110, colombia: 585, peru: 280)
 
 y = Year.create(year: 2003, homicide_rate: 23523, refugee_rate: 250196, user_rate: 230)
@@ -90,20 +70,13 @@ cc.cocaine_production = CocaineProduction.new(total: 825, bolivia: 130, colombia
 dd = Year.create(year: 2008, homicide_rate: 16140, refugee_rate: 306313, user_rate: 165)
 dd.cocaine_production = CocaineProduction.new(total: 705, bolivia: 195, colombia: 295, peru: 215)
 
-ee = Year.create(year: 2009, homicide_rate: 15817, refugee_rate: 137263)
+ee = Year.create(year: 2009, homicide_rate: 15817, refugee_rate: 137263, user_rate: 164)
 ee.cocaine_production = CocaineProduction.new()
 
-ff = Year.create(year: 2010)
-ff.cocaine_production = CocaineProduction.new()
 
-gg = Year.create(year: 2011)
-gg.cocaine_production = CocaineProduction.new()
-
-hh = Year.create(year: 2012)
-hh.cocaine_production = CocaineProduction.new()
-
-ii = Year.create(year: 2013)
-ii.cocaine_production = CocaineProduction.new()
+# user_rate is measured in tons
+# refugee_rate & homicide_rate is measure in number of people
+# production_rate is measured in tons
 
 
 

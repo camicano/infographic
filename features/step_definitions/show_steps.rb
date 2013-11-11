@@ -1,86 +1,96 @@
+Year.delete_all
+
 Given(/^I visit the main page$/) do
   visit '/'
 end
 
 And(/^my database has a year object$/) do
-  @y = Year.create(year: 1990, homicide_rate: 200, )
-  @y.year == 1990  
+  @year = Year.create(year: 2008, homicide_rate: 26540, refugee_rate: 268194, user_rate: 259)
+  @year.cocaine_production = CocaineProduction.new(total: 770, bolivia: 80, colombia: 530, peru: 160)
+  @year2 = Year.create(year: 2009, homicide_rate: 27840, refugee_rate: 388894, user_rate: 266)
+  @year2.cocaine_production = CocaineProduction.new(total: 1055, bolivia: 100, colombia: 700, peru: 255)
+  
+  @year.year == 2008
 end
 
 Then(/^year should have many events$/) do
-  @y.events.create(name: 'hello')
-  @y.events.create(name: '2')
-
-  @y.events.length == 2
+  @year.events.create(title: 'hello')
+  @year.events.create(title: '2')
+  @year2.events.create(title: 'event')
+  @year2.events.create(title: '3')
+  @year.events.length == 2
 end
 
 Then(/^year should have one production$/) do
-  @y.cocaine_production = CocaineProduction.new(total: 1000)  
-
-  @y.cocaine_production.total == 1000  
+  @year.cocaine_production.total == 770 
 end
 
 Then(/^there should be an ajax call where the info received is the first year info$/) do
-  find
-end
-
-Then(/^there should be a year counter for displaying total refugees$/) do
-  sleep 10
-  assert find('#deaths-counter').text == 0
-end
-
-Then(/^as the new data comes in the counter number should go up$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^there should be a production counter for displaying total production$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^there should be a users counter for displaying total users$/) do
-  pending # express the regexp above with the code you wish you had
+  # sleep 6
+  pending  
+  # assert find('#firstyear').text == @year.year.to_s
 end
 
 Then(/^there should be a year counter that checks the year being displayed$/) do
-  pending # express the regexp above with the code you wish you had
+  sleep 2
+  assert find('#year-counter').text == @year2.year.to_s
 end
 
-Then(/^number on the counter should be the number of the year$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^there should be a year counter for displaying total refugees$/) do
+  @refugee_rate = 0
+
+  Year.all.each do |year|
+    @refugee_rate += year.refugee_rate
+  end
+
+  assert find('#refugee-counter').text == @refugee_rate.to_s
+end
+
+Then(/^there should be a production counter for displaying total production$/) do
+  @production_total = 0
+  
+  Year.all.each do |year|
+    @production_total += year.cocaine_production.total
+  end
+
+  assert find('#production-counter').text == @production_total.to_s
+end
+
+Then(/^there should be a users counter for displaying total users$/) do
+  @user_rate = 0
+  
+  Year.all.each do |year|
+    @user_rate += year.user_rate
+  end
+
+  assert find('#users-counter').text == @user_rate.to_s
+end
+
+Then(/^there should be a title$/) do
+  assert find('#title').text == "Dusty Angels:" 
+end
+
+Then(/^there should be a menu$/) do
+  assert find('nav')
 end
 
 Then(/^for each event on the year there should be a div displaying the synopsis$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-Then(/^for each year there should be a bar chart displaying homicide numbers divided info per country$/) do
+Then(/^there should be an axis with the year and one top production\(in tons\) and below there should be refugees \(in people\)\.$/) do
+  pending
+end
+
+When(/^a new year$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-Then(/^for each year there should be a bar chart displaying production numbers divided info per country$/) do
+Then(/^there should be a new bar chart for production the bar chart should be divided into (\d+) countries$/) do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
-When(/^year counter reaches a certain number$/) do
+Then(/^there should be a new refugee bar chart$/) do
   pending # express the regexp above with the code you wish you had
-end
-
-Then(/^there is an ajax call for the next year$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-When(/^all the database items are in the browser$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should be able to see the entire information displayed on the page$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should be able to browse the menu$/) do
-  if years.length == 20
-    assert find('#menu')
-    assert find('#about_me')
-  end 
 end
 

@@ -32,7 +32,7 @@ end
 group :test do 
 	gem 'rspec-rails', '~> 2.0'
 	gem 'shoulda-matchers'
-	gem "selenium-webdriver", "~> 2.37.0"
+	gem "selenium-webdriver"
     gem 'cucumber-rails'
     gem 'database_cleaner'
     gem 'capybara'

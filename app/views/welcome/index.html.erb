@@ -1,0 +1,20 @@
+<div>
+	<div class='left'><h1 id='title'>Dusty Angels:</h1></div>
+	<div class='right'>Year: <span id="year-counter"></span></div>
+	<div class='right'>Total IDP(Internally displaced people): <span id="refugee-counter"></span></div>
+</div>
+<h2>The story behind the human cost of cocaine.</h2>
+
+<nav>
+	<p><span>Home |</span><span> Visualization 2 |</span><span> Visualization 3 |</span><span> About us</span></p>
+</nav>
+
+<div>Initial Year: <span id="firstyear"></span> | Total Cocaine Production: <span id="production-counter"></span> | Total Cocaine Consumption: <span id="users-counter"></span></div>
+
+<div id='graph1'></div>
+<div id='years'>
+	<% @years.each do |year| %>
+	<span id='year'>. <%= year.year %> .</span>
+	<% end %>
+</div>
+<div id='graph2'></div>

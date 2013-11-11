@@ -6,7 +6,6 @@ class Year
   field :events, type: Array
   field :user_rate, type: Integer
 
-
   embeds_one :cocaine_production
   embeds_many :events
 end
