@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-
+gem 'mongo'
+gem 'bson_ext'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -39,5 +40,4 @@ group :test do
     gem 'jasmine-rails'
 end
 
-gem 'rails_12factor', group: :production
 ruby "2.0.0"

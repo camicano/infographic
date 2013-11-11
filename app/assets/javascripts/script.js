@@ -122,7 +122,7 @@ $(function(){
 		count("#refugee-counter", refugee_count || 0, data.refugee_rate || 0);
 		refugee_count = data.refugee_rate || 0;
 
-		count("#production-counter", production_count || 0, data.cocaine_production.total || 0);
+		count("#production-counter", production_count || 0, data.cocaine_production.total);
 		production_count = data.cocaine_production.total || 0;			
 
 		count("#users-counter", users_count || 0, data.user_rate || 0)

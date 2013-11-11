@@ -26,13 +26,11 @@ Then(/^year should have one production$/) do
 end
 
 Then(/^there should be an ajax call where the info received is the first year info$/) do
-  # sleep 6
-  pending  
-  # assert find('#firstyear').text == @year.year.to_s
+  sleep 10  
+  assert find('#firstyear').text == @year.year.to_s
 end
 
 Then(/^there should be a year counter that checks the year being displayed$/) do
-  sleep 2
   assert find('#year-counter').text == @year2.year.to_s
 end
 
@@ -79,7 +77,7 @@ Then(/^for each event on the year there should be a div displaying the synopsis$
 end
 
 Then(/^there should be an axis with the year and one top production\(in tons\) and below there should be refugees \(in people\)\.$/) do
-  pending
+  assert find('') 
 end
 
 When(/^a new year$/) do
