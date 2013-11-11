@@ -29,12 +29,13 @@ function productionUseAxis(data){
 	var col = data.cocaine_production.colombia;
 
     canvas2.append("rect")
+    .attr("class", "bar_total")
     .attr("x", number)
     .attr("y", 300)
     .attr("width", 15)
     .attr("fill", "blue")
     .attr('height', 0)
-    .attr("class", "bar")
+
 
     .transition()
     .delay(100)

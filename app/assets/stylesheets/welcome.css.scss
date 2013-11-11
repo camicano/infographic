@@ -40,19 +40,11 @@ div span {
 	float: right;
 }
 
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: 'white';
-  color: 'black';
-  border-radius: 2px;
+.bar_total {
+	fill: blue;
 }
 
-.bar {
-	background: blue;
+.bar_total:hover {
+	fill: mediumblue;
 }
 
-.bar:hover {
-	background: purple;
-}

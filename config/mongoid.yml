@@ -78,7 +78,7 @@ test:
 production:
   sessions:
     default:
-      uri: <%= ENV['MONGOLAB_URI'] %>
+      database: infographic_production
+      hosts:
+        - localhost:27017
       options:
-        safe: true
-        skip_version_check: true
