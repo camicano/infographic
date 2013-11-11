@@ -1,0 +1,59 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+body {
+  background: black;
+  color: white;
+  font-family: 'Sintony'; }
+  body div {
+    width: 100%; }
+
+nav span:hover {
+  cursor: pointer; }
+
+#year {
+  font-size: 10px;
+  width: 35px; }
+
+#year-axis {
+  display: inline; }
+
+div {
+  display: inline-block; }
+
+.right {
+  width: 25%; }
+
+.left {
+  width: 48%; }
+
+div span {
+  color: red; }
+
+.right {
+  float: right; }
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: 'white';
+  color: 'black';
+  border-radius: 2px; }
+
+.bar {
+  background: blue; }
+
+.bar:hover {
+  background: purple; }
