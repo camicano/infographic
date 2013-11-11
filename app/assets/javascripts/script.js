@@ -1,4 +1,3 @@
-
 var refugee_count,
 	production_count,
 	users_count,
