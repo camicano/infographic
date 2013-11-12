@@ -1,11 +1,20 @@
 Year.delete_all
 	
+a = Year.create(year: 1985)
+a.cocaine_production = CocaineProduction.new(total: 0)
+a.events.create(title: "Justice Palace Siege", synopsis: "the 6 of November the M19 (a left wing guerrilla group) takes over the control of the Justice Palace. The guerrilla kidnapped Judges, personnel and visitors of the building for 2 days. The Colombian army responded to the attack with heavy weaponry and the center of Bogota became a battlefield between the guerrilla and the militaries. As a temporary solution, the government bans any information about the siege in the media and orders the transmission of a soccer match. The event left a total of 94 deaths and 11 'desaparecidos' (there is no clarity about what happen to this people) and the major destruction of the building. Most of the judges and members of the supreme courts were killed in the siege.")
 
 h = Year.create(year: 1986)
 h.cocaine_production = CocaineProduction.new(total: 710, bolivia: 220, colombia: 30, peru: 460)
+h.events.create(title: "Guillermo Cano Assassination: 17 of December 1986 ", synopsis: "Guillermo Cano was the director of El Espectador a national newspaper. El Espectador, was the only newspaper that report on the effects of narcotrafic and it's relationship with political power and violence. The assassination was considered a great violation to the freedom of speech in the country, nevertheless, El Espectador didn't stop the acusations and reports on the members of the big cartels.")
+h.events.create(title: "Virgilio Barco is elected president")
 
 i = Year.create(year: 1987)
 i.cocaine_production = CocaineProduction.new(total: 740, bolivia: 220, colombia: 40, peru: 480)
+i.events.create(title: "Jaime Pardo Leal assassination: 11 of October 1987", synopsis: "The presidential candidate Jaime Pardo Leal, member of the UP party, a left wing political group originated from a peace process with FARC.  This political party was subject of a genocide a well organized targeted killing operation that killed the main leaders of the organization and destroy it's roots a social organization.")
+i.events.create(title: "Hector Abad Gomez assassination: 25 of August 1987", synopsis: "Hector Abad Gomez, a Human Rights and development leader was murder by the paramilitary groups. He was one of the most respected leaders in Antioquia. The day he was murder other two Human Rights leaders were murdered.")
+i.events.create(title: "Carlos leader captured: 4 of February 1987", synopsis: "Carlos Leader, a drug lord and member of the Cartel de Medellin was captured by the Colombian police and was extradited to the United States. This was one of the triggers of the war between the Colombian State and the Extraditables (the group of most wanted criminals for extradition).")
+
 
 j = Year.create(year: 1988, user_rate: 660)
 j.cocaine_production = CocaineProduction.new(total: 750, bolivia: 225, colombia: 55, peru: 470)

@@ -65,7 +65,7 @@ Then(/^there should be a users counter for displaying total users$/) do
 end
 
 Then(/^there should be a title$/) do
-  assert find('#title').text == "Dusty Angels:" 
+  assert find('#title').text == "White Paradise:" 
 end
 
 Then(/^there should be a menu$/) do
