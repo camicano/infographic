@@ -7,17 +7,26 @@ var refugee_count,
 	canvas3;
 
 function refugeeAxis(data){
+	var tip = d3.tip()
+	  .attr('class', 'd3-tip')
+	  .offset([0, 0])
+	  .html("<p><strong>" + data.year + "</strong> </p><p>Displayzed People: <span style='color:red'>" + data.refugee_rate + " people</span></p><p>Homicide: <span style='color:red'>" + data.homicide_rate + " people</span><p>");
+
+	canvas1.call(tip);
+
 	canvas1.append("rect")
+    .attr("class", "bar_refugee") 
     .attr("x", number)
     .attr("y", 0)
     .attr("width", 30)
     .attr("fill", "orange")
     .attr("height", 0)
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
 	.transition()
     .ease("easeOutCubic")
     .duration(1000)
-
-    .attr("height", (data.refugee_rate * 0.001));
+    .attr("height", (data.refugee_rate * 0.0003));
 }
 
 function yearAxis(data){
@@ -28,15 +37,21 @@ function productionUseAxis(data){
 	var total = data.cocaine_production.total;
 	var col = data.cocaine_production.colombia;
 
+	var tip = d3.tip()
+	  .attr('class', 'd3-tip')
+	  .offset([0, 0])
+	  .html("<p><strong>" + data.year + " Production</strong> </p><p>Total: <span style='color:red'>" + data.cocaine_production.total + " metric tons</span></p><p>Colombia: <span style='color:red'>" + data.cocaine_production.colombia + " metric tons</span><p>");
+
+	canvas2.call(tip);
+
     canvas2.append("rect")
     .attr("class", "bar_total")
     .attr("x", number)
     .attr("y", 300)
-    .attr("width", 15)
+    .attr("width", 30)
     .attr("fill", "blue")
-    .attr('height', 0)
-
-
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
     .transition()
     .delay(100)
     .duration(1000)
@@ -45,9 +60,9 @@ function productionUseAxis(data){
     .attr("y", (300 - (total * 0.1) || 0));
 
 	canvas2.append("rect")
-    .attr("x", number + 15)
+    .attr("x", number)
     .attr("y", 300)
-    .attr("width", 15)
+    .attr("width", 30)
     .attr("fill", "green")
     .attr("height", 0)
     .transition()
@@ -102,7 +117,7 @@ $(function(){
 	canvas1 = d3.select("#graph2")
     	.append("svg")
         .attr("width", 1000)
-        .attr("height", 300);
+        .attr("height", 200);
 
 
 	canvas2 = d3.select("#graph1")
