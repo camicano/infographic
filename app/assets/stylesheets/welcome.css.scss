@@ -1,14 +1,81 @@
 body {
-	background: black;
-	color: white;
+	background: url(sandpaper.png);
+	color: #3B4044;
 	font-family: 'Sintony';
-	div {
-		width: 100%;
-	}
+  padding: 17px;
+  
+  h1, h2, p {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+  div {
+  display: inline-block;
+  }
 }
 
-nav span:hover {
-	cursor: pointer;
+.header{
+  margin-bottom: 20px;
+  p {
+    color: #E27A3F;
+  }
+}
+
+
+#menu {
+  margin: 10px;
+  float: right;
+  padding-left: 20px;
+  span {
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  span:hover {
+    cursor: pointer;
+    color: #E27A3F;
+  }
+}
+
+#counters {
+  padding: 20px;
+  color: #D1CDC4;
+  background-color: #3B4044;
+  font-size: 20px;
+  span {
+    color: #E27A3F;
+  }
+  div {
+    padding: 5px;
+  }
+}
+
+#f-count{
+  width: 170px;
+  float: left;
+}
+
+#y-count{
+  width: 170px;
+  float: left;
+}
+
+#p-count{
+  width: 340px;
+  float: right;
+}
+
+#r-count{
+  width: 490px;
+  float: right;
 }
 
 #year {
@@ -20,20 +87,12 @@ nav span:hover {
 	display: inline;
 }
 
-div {
-	display: inline-block;
-}
-
 .right {
 	width: 25%;
 }
 
 .left {
 	width: 48%;
-}
-
-div span {
-	color: red;
 }
 
 .right {
