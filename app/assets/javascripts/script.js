@@ -66,7 +66,7 @@ function productionUseAxis(data){
     canvas2.append("rect")
     .attr("class", "bar_total")
     .attr("x", number)
-    .attr("y", 300)
+    .attr("y", 200)
     .attr("width", 35)
     .on('mouseover', tip.show)
     .on('mouseout', tip.hide)
@@ -74,12 +74,12 @@ function productionUseAxis(data){
     .delay(100)
     .duration(2000)
     .ease("easeOutCubic")
-    .attr("height", (300 - (total * 0.1)))
-    .attr("y", (300 - (total * 0.1) || 0));
+    .attr("height", (200 - (total * 0.1)))
+    .attr("y", (200 - (total * 0.1) || 0));
 
 	canvas2.append("rect")
     .attr("x", number)
-    .attr("y", 300)
+    .attr("y", 200)
     .attr("width", 35)
     .attr("fill", "#334D5C")
     .on('mouseover', tip.show)
@@ -88,8 +88,8 @@ function productionUseAxis(data){
     .transition()
     .duration(2000)
     .ease("easeOutCubic")
-	.attr("y", (300 - (col * 0.1) || 0))
-    .attr("height", (300 - (col * 0.1)));
+	.attr("y", (200 - (col * 0.1) || 0))
+    .attr("height", (200 - (col * 0.1)));
 	flashEvents(data);
 }
 
@@ -224,8 +224,8 @@ function productionDiv(){
 	}).done(function(data){
 		$.each(data, function(index, element){
 			if(element.cocaine_production.total>200){
-					w = 110,                       
-				    h = 110,                            
+					w = 100,                       
+				    h = 100,                            
 				    r = 45,
 				    color = d3.scale.category20();
 
@@ -328,30 +328,96 @@ function axis(){
 	    .style("text-anchor", "start");
 }
 
+function firstAjax(){
+	$.ajax({
+		url: '/years',
+		method: 'get',
+		dataType: 'json'
+	}).done(function(data){
+		$('#firstyear').append(data.year);
+		$('#year-counter').append(data.year);
+
+		count("#refugee-counter", refugee_count || 0, data.refugee_rate || 0);
+		refugee_count = data.refugee_rate || 0;
+
+		count("#production-counter", production_count || 0, data.cocaine_production.colombia || 0);
+		production_count = data.cocaine_production.colombia || 0;			
+
+		count("#users-counter", users_count || 0, data.user_rate || 0)
+		users_count = data.user_rate || 0;
+
+		setTimeout(function(){
+			var year_count = data.year + 1;
+			ajaxCall(year_count);
+
+			number = 0;
+			refugeeAxis(data);			
+			productionUseAxis(data);
+		}, 2000); 
+	});
+}
+var captionLength = 0;
+
+function intro() {
+    $('#intro').addClass('animated fadeInDown');
+    $('#intro').show();
+
+    setTimeout(function(){
+    	$('#introb').addClass('animated fadeInDown').show();
+    }, 3000);
+
+    setTimeout(function(){
+    	$('#introc').addClass('animated fadeInDown').show();
+    }, 6000);
+
+    setTimeout(function(){
+    	$('#introd').addClass('animated fadeInDown').show();
+    }, 9000);
+
+    setTimeout(function(){
+		$('#intro').hide();
+		$('#introb').hide();
+		$('#introc').hide();
+		$('#introd').hide();
+		$('#about-us').hide();
+		$('#graph').show();
+		$('#production').hide();
+		$('#by-year').hide();
+		$('#total-content').addClass('animated fadeInDown').show();
+    	firstAjax();
+    }, 15000);
+}
+
 
 // ########################################
 // #############ONLOAD FUNCTION############
 // ########################################
 $(function(){
-	$('#about-us').hide();
-	$('#graph').show();
+	// $('#total-content').hide();
+	$('#about-us').show();
+	$('#graph').hide();
 	$('#production').hide();
 	$('#by-year').hide();
+	$('#intro').hide();
+	$('#introb').hide();
+	$('#introc').hide();
+	$('#introd').hide();
+	// intro();
 
 	productionDiv();
 	prodLegend();
 	axis();
-
+  	
+	
 	canvas1 = d3.select("#graph2")
     	.append("svg")
         .attr("width", 1000)
         .attr("height", 150);
 
-
 	canvas2 = d3.select("#graph1")
     	.append("svg")
         .attr("width", 1000)
-        .attr("height", 300);
+        .attr("height", 200);
 
 	canvas3 = $('#year-axis');
 
@@ -381,32 +447,5 @@ $(function(){
 		$('#graph').hide();
 		$('#production').hide();
 		$('#by-year').show();
-	});
-
-	$.ajax({
-		url: '/years',
-		method: 'get',
-		dataType: 'json'
-	}).done(function(data){
-		$('#firstyear').append(data.year);
-		$('#year-counter').append(data.year);
-
-		count("#refugee-counter", refugee_count || 0, data.refugee_rate || 0);
-		refugee_count = data.refugee_rate || 0;
-
-		count("#production-counter", production_count || 0, data.cocaine_production.colombia || 0);
-		production_count = data.cocaine_production.colombia || 0;			
-
-		count("#users-counter", users_count || 0, data.user_rate || 0)
-		users_count = data.user_rate || 0;
-
-		setTimeout(function(){
-			var year_count = data.year + 1;
-			ajaxCall(year_count);
-
-			number = 0;
-			refugeeAxis(data);			
-			productionUseAxis(data);
-		}, 2000); 
 	});
 });

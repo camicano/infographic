@@ -1,85 +1,108 @@
-<div class='div'>	
-	<div class='header'>
-		<h1 id='title'>White Paradise</h1>
-		<h2>A story behind the <span>human</span> cost of cocaine.</h2>
+<div id='total-content'>
+	<div class='div'>	
+		<div class='header'>
+			<h1 id='title'>White Paradise</h1>
+			<h2>A story behind the <span>human</span> cost of cocaine.</h2>
+		</div>
+
+		<div id='menu'>
+			| <span id='home-button'>Home</span> | 
+			<span id='production-button'> Production by Year</span> | 
+			<span id='about-button'> About us</span> | 
+		</div>
 	</div>
 
-	<div id='menu'>
-		| <span id='home-button'>Home</span> | 
-		<span id='production-button'> Production by Year</span> | 
-		<span id='year-button'> Summary By Year</span> | 
-		<span id='about-button'> About us</span> | 
+	<div class='div' id='counters'>
+		<div id='f-count'>From Year: <span id="firstyear"></span></div>
+		<div id='y-count'>Until Year: <span id="year-counter"></span></div>
+		<div id='p-count'>Colombian Cocaine Production: <span id="production-counter"></span></div>
+		<div id='r-count'>Total IDP (Internally displaced people): <span id="refugee-counter"></span></div>
 	</div>
-</div>
-
-<div class='div' id='counters'>
-	<div id='f-count'>From Year: <span id="firstyear"></span></div>
-	<div id='y-count'>Until Year: <span id="year-counter"></span></div>
-	<div id='p-count'>Colombian Cocaine Production: <span id="production-counter"></span></div>
-	<div id='r-count'>Total IDP (Internally displaced people): <span id="refugee-counter"></span></div>
-</div>
 
 
-<!-- ############### -->
-<!-- #####PAGES##### -->
-<!-- ############### -->
-<div class='div' id='about-us'>
-	<h1>About Us</h1>
+	<!-- ############### -->
+	<!-- #####PAGES##### -->
+	<!-- ############### -->
+	<div class='div' id='about-us'>
+		<h3>About Us</h3>
 
-	<h3>Why White Paradise?</h3>
-	<p>The idea was born after we had a conversation about how much stigma there was around being a Colombian.</p>
-	<p>There is this misconception around Colombians being cocaine users and being an intentional part of the drug treading</p>
-	<p>In reality Colombians not only live with the stigma outside of their country but also live in a country distroyed</p>
-	<p>by war and drug money.</p>
-	<p>We wanted to visualize the direct relation between drug production and human displazement, homicide and war</p>
-	<p>We want to tell the world that Colombians are not the root but the victims of the cocaine market.</p>
-
-	<h3>Who are we?</h3>
-	<p>Camila Cano: Developer and Creator</p>
-	<p>Abby Isaacs: Data Researcher and Data Analist</p>
-	<p>Daniel Cano: Historian</p>
-
-	<h3>Acknowledge</h3>
-	<p>Developed at General Assembly in New York City as part of the Web Development Immersive Program</p>
-	<p>Inspired by this great infographic: http://drones.pitchinteractive.com</p>
-
-	<h3>References</h3>
-</div>
-
-<div class='div' id='graph'>
-	<div id='graph1'></div>
-	<div id='axis'></div>
-	<div id='graph2'></div>	
-	<div id='event-container'></div>
-</div>
-
-<div class='div' id='production'>
-	<h3>Cocaine Production by Year</h3>
-	<div id='prod-legend'></div>
-	<div id='prod'></div>
-</div>
-
-<div class='div' id='by-year'>
-	<h3 id='year-year'></h3>
-	<div class='summary-div'>
 		<div>
-			<div id'content-left'>
-				<h2>Production</h2>
-				<div id='prod-year'></div>
-			</div>
-			<div>
-				<h2>Price: <span>$</span></h2>
-			</div>
-			<div>
-				<h2>Homicides: <span id='hom-year'></span></h2>
-				<h2>Displaced People: <span id='idp-year'></span></h2>
-			</div>
-		</div>	
+			<h2>Why White Paradise?</h2>
+			<p>The idea was born after we had a conversation about how much stigma there was around being a Colombian.</p>
+			<p>There is this misconception around Colombians being cocaine users and being an intentional part of the drug treading</p>
+			<p>In reality Colombians not only live with the stigma outside of their country but also live in a country distroyed</p>
+			<p>by war and drug money.</p>
+			<p>We wanted to visualize the direct relation between drug production and human displazement, homicide and war</p>
+			<p>We want to tell the world that Colombians are not the root but the victims of the cocaine market.</p>
+
+			<h2>Who are we?</h2>
+			<p><span>Camila Cano</span>: Developer and Creator.</p>
+			<p><span>Abby Isaacs</span>: Data Researcher and Data Analist.</p>
+			<p><span>Daniel Cano</span>: Historian.</p>
+
+			<h2>References</h2>
+			<p><a href='http://www.unodc.org/unodc/en/data-and-analysis/homicide.html' target='blank'>Homicide Rates in Colombia</a></p>
+			<p><a href='http://www.dps.gov.co/documentos/Retornos/CIDH%20Desplazamiento%20Forzado%20en%20Colombia%20Marzo%202010%20para%20Canciller%C3%ADa1.pdf' target='blank'>Internally displaced people</a></p>
+			<p><a href="http://www.whitehouse.gov/sites/default/files/ondcp/policy-and-research/2013_data_supplement_final2.pdf" target='blank'>Cocaine Production</a></p>
+			<p><a href="http://www.unodc.org/documents/data-and-analysis/tocta/TOCTA_Report_2010_low_res.pdf" target='blank'>US User Rate</a></p>
+
+		</div>
+		
+		<div>
+			<h4>Acknowledgements</h4>
+			<img src="/assets/ga.png">		
+			<h4>Developed at <span>General Assembly</span> as part of the Web Development Immersive Program</h4>
+			<h4>Inspired by this <span>great infographic!</span> http://drones.pitchinteractive.com</h4>
+		</div>
 	</div>
-	<div class='summary-div'>
-		<div id='event-year'>
+
+	<div class='div' id='graph'>
+		<div id='graph1'></div>
+		<div id='axis'></div>
+		<div id='graph2'></div>	
+		<div id='event-container'></div>
+	</div>
+
+	<div class='div' id='production'>
+		<h3>Cocaine Production by Year</h3>
+		<div id='prod-legend'></div>
+		<div id='prod'></div>
+	</div>
+
+	<div class='div' id='by-year'>
+		<h3 id='year-year'></h3>
+		<div class='summary-div'>
+			<div>
+				<div id'content-left'>
+					<h2>Production</h2>
+					<div id='prod-year'></div>
+				</div>
+				<div>
+					<h2>Price: <span>$</span></h2>
+				</div>
+				<div>
+					<h2>Homicides: <span id='hom-year'></span></h2>
+					<h2>Displaced People: <span id='idp-year'></span></h2>
+				</div>
+			</div>	
+		</div>
+		<div class='summary-div'>
+			<div id='event-year'>
+			</div>
 		</div>
 	</div>
 </div>
 
+<div class='div'>
+	<br>
+	<br>
+	<p id='intro'><strong>Coca:</strong> A sacret plant that has been used by people in <span>South American </span>for centries.</p>
+	<br>
+	<p id='introb'><strong>Coca</strong> is the main ingredient in <strong>cocaine</strong> and has become a very sought after plant which has ignited a Bloody war funded by cocaine money.</p>
+	<br>
+	<p id='introc'>Thanks to this war people in <span>Colombia</span> are faced with two options:</p>
+	<br>
+	<p id='introd'>They can become part of the cocaine production <strong>business</strong> and the war that goes with it or leave their land behind in order to find a place where they can live in <span>peace</span>.</p>
+	<br>
+</div>
 

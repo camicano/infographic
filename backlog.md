@@ -31,3 +31,25 @@
 
 + homicides and production bars have hover functions that show relations between them
 + -there is many views that underline different interesting relations between this variables(optional)
+
+
+
+Coca: A sacret plant that has been used for Indigenious people in South American for centries.
+Coca is the main ingredient in cocaine and has become a very sought after plant which has ignited a bloody war 
+funded by cocaine money.  
+This communities are faced with two options: 
+they can become part of the cocaine production business and the war that goes with it 
+or leave their land behind in order to find a place where they can live in peace
+
+
+
+
+
+
+
+
+
+
+
+
+

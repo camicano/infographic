@@ -13,7 +13,7 @@ class YearsController < ApplicationController
 	end
 
 	def all
-		@years = Year.all
+		@years = Year.order_by([:year, :asc])
 		respond_with(@years)
 	end
 end
