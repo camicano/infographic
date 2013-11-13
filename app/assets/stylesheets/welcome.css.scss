@@ -26,7 +26,7 @@ body {
   .div {
     display: inline-block;
     width: 1000px;
-    padding: 20px;
+    padding: 0px 20px 20px 20px;
     margin-left: 5%;
   }
 }
@@ -134,7 +134,12 @@ body {
 }
 
 .event_text {
-  font-size: 12px;
+  font-size: 14px;
+}
+
+.event_text:hover {
+  fill: #E27A3F;
+  cursor: pointer;
 }
 
 .event-tip {
@@ -188,8 +193,19 @@ body {
   font-size: 10px;
 }
 
+.summary-div {
+  width: 495px;
+  display: inline-block;
+  p {
+    font-size: 11px;
+    text-align: left;
+  }
+}
 
-
+#prod-year {
+  width: 300px;
+  padding-left: 200px;
+}
 
 
 

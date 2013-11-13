@@ -1,28 +1,28 @@
 Year.delete_all
 	
-a = Year.create(year: 1985)
+a = Year.create(year: 1985, event_title: "Justice Palace Siege")
 a.cocaine_production = CocaineProduction.new(total: 0)
 a.events.create(title: "Justice Palace Siege", synopsis: "the 6 of November the M19 (a left wing guerrilla group) takes over the control of the Justice Palace. The guerrilla kidnapped Judges, personnel and visitors of the building for 2 days. The Colombian army responded to the attack with heavy weaponry and the center of Bogota became a battlefield between the guerrilla and the militaries. As a temporary solution, the government bans any information about the siege in the media and orders the transmission of a soccer match. The event left a total of 94 deaths and 11 'desaparecidos' (there is no clarity about what happen to this people) and the major destruction of the building. Most of the judges and members of the supreme courts were killed in the siege.")
 
-h = Year.create(year: 1986)
+h = Year.create(year: 1986, event_title: "Guillermo Cano Assassinated. Virgilio Barco is elected president")
 h.cocaine_production = CocaineProduction.new(total: 710, bolivia: 220, colombia: 30, peru: 460)
-h.events.create(title: "Guillermo Cano Assassination: 17 of December 1986 ", synopsis: "Guillermo Cano was the director of El Espectador a national newspaper. El Espectador, was the only newspaper that report on the effects of narcotrafic and it's relationship with political power and violence. The assassination was considered a great violation to the freedom of speech in the country, nevertheless, El Espectador didn't stop the acusations and reports on the members of the big cartels.")
+h.events.create(title: "Guillermo Cano Assassination", synopsis: "Guillermo Cano was the director of El Espectador a national newspaper. El Espectador, was the only newspaper that report on the effects of narcotrafic and it's relationship with political power and violence. The assassination was considered a great violation to the freedom of speech in the country, nevertheless, El Espectador didn't stop the acusations and reports on the members of the big cartels.")
 h.events.create(title: "Virgilio Barco is elected president")
 
-i = Year.create(year: 1987)
+i = Year.create(year: 1987, event_title: "Jaime Pardo Leal and Hector Abad Gomez assesinated. Carlos leader captured.")
 i.cocaine_production = CocaineProduction.new(total: 740, bolivia: 220, colombia: 40, peru: 480)
-i.events.create(title: "Jaime Pardo Leal assassination: 11 of October 1987", synopsis: "The presidential candidate Jaime Pardo Leal, member of the UP party, a left wing political group originated from a peace process with FARC.  This political party was subject of a genocide a well organized targeted killing operation that killed the main leaders of the organization and destroy it's roots a social organization.")
-i.events.create(title: "Hector Abad Gomez assassination: 25 of August 1987", synopsis: "Hector Abad Gomez, a Human Rights and development leader was murder by the paramilitary groups. He was one of the most respected leaders in Antioquia. The day he was murder other two Human Rights leaders were murdered.")
-i.events.create(title: "Carlos leader captured: 4 of February 1987", synopsis: "Carlos Leader, a drug lord and member of the Cartel de Medellin was captured by the Colombian police and was extradited to the United States. This was one of the triggers of the war between the Colombian State and the Extraditables (the group of most wanted criminals for extradition).")
+i.events.create(title: "Jaime Pardo Leal assassination", synopsis: "The presidential candidate Jaime Pardo Leal, member of the UP party, a left wing political group originated from a peace process with FARC.  This political party was subject of a genocide a well organized targeted killing operation that killed the main leaders of the organization and destroy it's roots a social organization.")
+i.events.create(title: "Hector Abad Gomez assassination", synopsis: "Hector Abad Gomez, a Human Rights and development leader was murder by the paramilitary groups. He was one of the most respected leaders in Antioquia. The day he was murder other two Human Rights leaders were murdered.")
+i.events.create(title: "Carlos leader captured", synopsis: "Carlos Leader, a drug lord and member of the Cartel de Medellin was captured by the Colombian police and was extradited to the United States. This was one of the triggers of the war between the Colombian State and the Extraditables (the group of most wanted criminals for extradition).")
 
 
-j = Year.create(year: 1988, user_rate: 660)
+j = Year.create(year: 1988, user_rate: 660, event_title: "Andres Pastrana and  Alvaro Gomez Hurtado Kidnapped. Carlos Mauro Hoyos Assesinated.")
 j.cocaine_production = CocaineProduction.new(total: 750, bolivia: 225, colombia: 55, peru: 470)
-j.events.create(title: "Andres Pastrana Kidnapped: 18 of January 1988", synopsis: "Andres Pastrana, a candidate for Mayor in Bogota, was kidnapped by the Extraditables (the group of most wanted criminals for extradition). He was chosen for being member of one of the most traditional political families in the country. His father, Misael Pastrana was president from 1970-1974 and Andres was elected president in 1998. The Extraditables wanted to negotiate the freedom of Andres for the elimination of extradition. The 25 of January he was rescued by the Colombian Army.")
-j.events.create(title: "Carlos Mauro Hoyos Assesination: 25 of January 1988", synopsis: "Carlos Mauro Hoyos was the General Prosecutor of Colombia. During his time in office, he prosecuted several cases of narcotrafic and narco related violence. He was kidnapped by the Extraditables (the group of most wanted criminals for extradition) on the same day as Andres Pastrana. As retaliation to the rescue of Andres Pastrana, he was murdered by the extraditables.")
-j.events.create(title: "Alvaro Gomez Hurtado: 19 of may 1988", synopsis: "The Conservative politician Alvaro Gomez Hurtado, was kidnapped by M19. At the beginning, the Guerrilla didn't recognize authority for the crime. Once M19 accepted the authority of the kidnapping, by asking for the beginning of a peace negotiation. This negotiation was the root for the new constitution in 1991.")
+j.events.create(title: "Andres Pastrana Kidnapped", synopsis: "Andres Pastrana, a candidate for Mayor in Bogota, was kidnapped by the Extraditables (the group of most wanted criminals for extradition). He was chosen for being member of one of the most traditional political families in the country. His father, Misael Pastrana was president from 1970-1974 and Andres was elected president in 1998. The Extraditables wanted to negotiate the freedom of Andres for the elimination of extradition. The 25 of January he was rescued by the Colombian Army.")
+j.events.create(title: "Carlos Mauro Hoyos Assesination", synopsis: "Carlos Mauro Hoyos was the General Prosecutor of Colombia. During his time in office, he prosecuted several cases of narcotrafic and narco related violence. He was kidnapped by the Extraditables (the group of most wanted criminals for extradition) on the same day as Andres Pastrana. As retaliation to the rescue of Andres Pastrana, he was murdered by the extraditables.")
+j.events.create(title: "Alvaro Gomez Hurtado Kidnapped", synopsis: "The Conservative politician Alvaro Gomez Hurtado, was kidnapped by M19. At the beginning, the Guerrilla didn't recognize authority for the crime. Once M19 accepted the authority of the kidnapping, by asking for the beginning of a peace negotiation. This negotiation was the root for the new constitution in 1991.")
 
-k = Year.create(year: 1989, user_rate: 576)
+k = Year.create(year: 1989, user_rate: 576, event_title: "The Avianca Airplane bombing")
 k.cocaine_production = CocaineProduction.new(total: 755, bolivia: 220, colombia: 70, peru: 465)
 k.events.create(title: "The Avianca Airplane bombing")
 
