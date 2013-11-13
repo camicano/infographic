@@ -385,6 +385,7 @@ function intro() {
 		$('#introb').hide();
 		$('#introc').hide();
 		$('#introd').hide();
+		$('#introe').hide();
 		$('#about-us').hide();
 		$('#graph').show();
 		$('#production').hide();
