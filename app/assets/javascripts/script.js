@@ -8,7 +8,8 @@ var refugee_count,
 	canvas1,
 	canvas2,
 	canvas3,
-	canvas;
+	canvas,
+	flash_num;
 
 var number1 = 0;
 
@@ -21,7 +22,7 @@ function refugeeAxis(data){
 	var tip = d3.tip()
 	  .attr('class', 'd3-tip')
 	  .offset([0, 0])
-	  .html("<p><strong>" + data.year + "</strong> </p><p>Displayzed People: <span style='color:red'>" + data.refugee_rate + " people</span></p><p>Homicide: <span style='color:red'>" + data.homicide_rate + " people</span><p>");
+	  .html("<p><strong>" + data.year + "</strong> </p><p>Displaced People: <span style='color:red'>" + data.refugee_rate + " people</span></p><p>Homicide: <span style='color:red'>" + data.homicide_rate + " people</span><p>");
 
 	canvas1.call(tip);
 
@@ -29,19 +30,27 @@ function refugeeAxis(data){
     .attr("class", "bar_refugee") 
     .attr("x", number)
     .attr("y", 0)
-    .attr("width", 30)
-    .attr("fill", "orange")
+    .attr("width", 35)
     .attr("height", 0)
     .on('mouseover', tip.show)
     .on('mouseout', tip.hide)
 	.transition()
     .ease("easeOutCubic")
-    .duration(1000)
-    .attr("height", (data.refugee_rate * 0.0003));
-}
+    .duration(2000)
+    .attr("height", ((data.refugee_rate + data.homicide_rate) * 0.0003));
 
-function yearAxis(data){
-	canvas3.append('<div id="year">|'+ data.year +'|</div>');
+    canvas1.append("rect")
+    .attr("x", number)
+    .attr("y", 0)
+    .attr("width", 35)
+    .attr("height", 0)
+    .attr("fill", "#E27A3F")
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
+	.transition()
+    .ease("easeOutCubic")
+    .duration(2000)
+    .attr("height", (data.homicide_rate * 0.0003));
 }
 
 function productionUseAxis(data){
@@ -58,29 +67,62 @@ function productionUseAxis(data){
     canvas2.append("rect")
     .attr("class", "bar_total")
     .attr("x", number)
-    .attr("y", 300)
-    .attr("width", 30)
-    .attr("fill", "blue")
+    .attr("y", 200)
+    .attr("width", 35)
     .on('mouseover', tip.show)
     .on('mouseout', tip.hide)
     .transition()
     .delay(100)
-    .duration(1000)
+    .duration(2000)
     .ease("easeOutCubic")
-    .attr("height", (300 - (total * 0.1)))
-    .attr("y", (300 - (total * 0.1) || 0));
+    .attr("height", (200 - (total * 0.1)))
+    .attr("y", (200 - (total * 0.1) || 0));
 
 	canvas2.append("rect")
     .attr("x", number)
-    .attr("y", 300)
-    .attr("width", 30)
-    .attr("fill", "green")
+    .attr("y", 200)
+    .attr("width", 35)
+    .attr("fill", "#334D5C")
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
     .attr("height", 0)
     .transition()
-    .duration(1000)
+    .duration(2000)
     .ease("easeOutCubic")
-	.attr("y", (300 - (col * 0.1) || 0))
-    .attr("height", (300 - (col * 0.1)));
+	.attr("y", (200 - (col * 0.1) || 0))
+    .attr("height", (200 - (col * 0.1)));
+    $.each(data.events, function(i, data){
+	    flashEvents(i, data);    	
+    });
+}
+
+function flashEvents(i, data){
+	canvas2.append("rect")
+      .attr("y", -30)
+      .attr("x", 300)
+      .attr("width", 400)
+      .attr("fill", "#DF5A49")
+      .attr("height", 20)
+     .transition()
+      .duration(500)
+	  .attr("y", (i * 21))
+     .transition()
+      .delay(1500)
+      .duration(500)
+      .attr("y", -30);
+
+	canvas2.append("text")
+		.attr("y", -20)
+		.attr("x", 300)
+		.attr("class", "event_text")
+		.text(data.title)
+	  .transition()
+		.duration(500)
+		.attr("y", (i * 21) + 17)
+	  .transition()
+		.delay(1500)
+		.duration(500)
+		.attr("y", -20);
 }
 
 function ajaxCall(year){
@@ -96,8 +138,8 @@ function ajaxCall(year){
 			refugee_count += data.refugee_rate;
 			// $('#refugee-counter').empty().append(refugee_count);
 	
-			count("#production-counter", production_count || 0, (production_count + data.cocaine_production.total));
-			production_count += data.cocaine_production.total;			
+			count("#production-counter", production_count || 0, (production_count + data.cocaine_production.colombia));
+			production_count += data.cocaine_production.colombia;			
 	
 			count("#users-counter", users_count || 0, (users_count + data.user_rate));
 			users_count += data.user_rate;
@@ -105,14 +147,12 @@ function ajaxCall(year){
 			setTimeout(function(){
 				var year_count = data.year + 1;
 				ajaxCall(year_count);
-				events(data.events);
 				
-				number += 35;	
-				yearAxis(data);		
+				number += 40;	
 				refugeeAxis(data);	
 				productionUseAxis(data);	
 				
-			}, 500);
+			}, 2000);
 		});
 	}
 }
@@ -121,7 +161,7 @@ function count(div, from, to){
 	$(div).countTo({
         from: from,
         to: to,
-        speed: 500,
+        speed: 2000,
         refreshInterval: 10,
     });
 }
@@ -168,28 +208,26 @@ function productionDiv(){
 	}).done(function(data){
 		$.each(data, function(index, element){
 			if(element.cocaine_production.total>200){
-				var div = "<div><h4>" + element.year + "</h4></div>",
-					w = 120,                       
-				    h = 120,                            
-				    r = 50,
+					w = 110,                       
+				    h = 110,                            
+				    r = 45,
 				    color = d3.scale.category20();
 
-				$('#production').append(div);
-				
 				data = [{"value": element.cocaine_production.bolivia, "label": "Bolivia"}, 
 						{"value": element.cocaine_production.peru, "label": "Peru"},
 						{"value": element.cocaine_production.colombia, "label": "Colombia"}];
 
-			    var vis = d3.select("#production")
+			    var vis = d3.select("#prod")
 			        .append("svg:svg")              
 			        .data([data])                   
 			            .attr("width", w)           
 			            .attr("height", h)
 			        .append("svg:g")                
-			            .attr("transform", "translate(" + r + "," + r + ")")   
-			 
+			            .attr("transform", "translate(" + r + "," + r + ")")
+
 			    var arc = d3.svg.arc()              
-			        .outerRadius(r);
+			        .outerRadius(r)
+			        .innerRadius(r/2);
 			 
 			    var pie = d3.layout.pie()       
 			        .value(function(d) { return d.value; });  
@@ -202,21 +240,77 @@ function productionDiv(){
 			 
 		        arcs.append("svg:path")
 	                .attr("fill", function(d, i) { return color(i); } )
-	                .attr("d", arc);                            
-		 
-		        arcs.append("svg:text")                                
-	                .attr("transform", function(d) {         
-	                d.innerRadius = 0;
-	                d.outerRadius = r;
-	                return "translate(" + arc.centroid(d) + ")";       
-	            	})
-		            .attr("text-anchor", "middle")                      
-		            .text(function(d, i) { return data[i].label; });         
+	                .attr("d", arc);  
+
+	            vis.append("text")
+			      .attr("dy", ".35em")
+			      .style("text-anchor", "middle")
+			      .text(element.year);                          
 			}
 		});
 	});
 }
 
+function prodLegend(){
+	color = d3.scale.category20();
+
+	$('#prod-legend').append('<div><p>Bolivia:</p></div>');
+
+	d3.select('#prod-legend')
+		.append("svg")
+		.attr("width", 15)
+		.attr("height", 15)
+	  .append("rect")
+		.attr("width", 15)
+		.attr("height", 15)
+		.attr("fill", "#1f77b4");
+
+	$('#prod-legend').append('<div><p>Colombia:</p></div>');
+
+	d3.select('#prod-legend')
+		.append("svg")
+		.attr("width", 15)
+		.attr("height", 15)
+	  .append("rect")
+		.attr("width", 15)
+		.attr("height", 15)
+		.attr("fill", "#ff7f0e");
+
+	$('#prod-legend').append('<div><p>Peru:</p></div>');
+
+	d3.select('#prod-legend')
+		.append("svg")
+		.attr("width", 15)
+		.attr("height", 15)
+	  .append("rect")
+		.attr("width", 15)
+		.attr("height", 15)
+		.attr("fill", "#aec7e8");
+}
+
+function axis(){
+
+	var x = d3.time.scale()
+	    .domain([new Date(1985, 0, 1), new Date(2009, 0, 1)])
+	    .range([1, 970]);
+
+	var xAxis = d3.svg.axis()
+	    .scale(x);
+
+	var svg = d3.select("#axis").append("svg")
+	    .attr("width", 1000)
+	    .attr("height", 35);
+
+	svg.append("g")
+	    .attr("class", "axis")
+	    .call(xAxis)
+	  .selectAll("text")
+	    .attr("y", 0)
+	    .attr("x", 9)
+	    .attr("dy", ".35em")
+	    .attr("transform", "rotate(90)")
+	    .style("text-anchor", "start");
+}
 
 
 // ########################################
@@ -226,42 +320,51 @@ $(function(){
 	$('#about-us').hide();
 	$('#graph').show();
 	$('#production').hide();
+	$('#by-year').hide();
+
 	productionDiv();
+	prodLegend();
+	axis();
 
 	canvas1 = d3.select("#graph2")
     	.append("svg")
-        .attr("width", 900)
-        .attr("height", 200);
+        .attr("width", 1000)
+        .attr("height", 150);
 
 
 	canvas2 = d3.select("#graph1")
     	.append("svg")
-        .attr("width", 900)
-        .attr("height", 300);
+        .attr("width", 1000)
+        .attr("height", 200);
 
 	canvas3 = $('#year-axis');
-
-	canvas = d3.select('#event-container')
-		.append("svg")
-		.attr("width", 400)
-		.attr("height", 1000);
 
 	$('#about-button').on('click', function(){
 		$('#about-us').show();
 		$('#graph').hide();
 		$('#production').hide();
+		$('#by-year').hide();
 	});
 
 	$('#home-button').on('click', function(){
 		$('#about-us').hide();
 		$('#graph').show();
 		$('#production').hide();
+		$('#by-year').hide();
 	});
 
 	$('#production-button').on('click', function(){
 		$('#about-us').hide();
 		$('#graph').hide();
 		$('#production').show();
+		$('#by-year').hide();
+	});
+
+	$('#year-button').on('click', function(){
+		$('#about-us').hide();
+		$('#graph').hide();
+		$('#production').hide();
+		$('#by-year').show();
 	});
 
 	$.ajax({
@@ -275,8 +378,8 @@ $(function(){
 		count("#refugee-counter", refugee_count || 0, data.refugee_rate || 0);
 		refugee_count = data.refugee_rate || 0;
 
-		count("#production-counter", production_count || 0, data.cocaine_production.total || 0);
-		production_count = data.cocaine_production.total || 0;			
+		count("#production-counter", production_count || 0, data.cocaine_production.colombia || 0);
+		production_count = data.cocaine_production.colombia || 0;			
 
 		count("#users-counter", users_count || 0, data.user_rate || 0)
 		users_count = data.user_rate || 0;
@@ -284,13 +387,11 @@ $(function(){
 		setTimeout(function(){
 			var year_count = data.year + 1;
 			ajaxCall(year_count);
-			events(data.events);
 
 			number = 0;
-			yearAxis(data);
 			refugeeAxis(data);			
 			productionUseAxis(data);	
 
-		}, 500); 
+		}, 2000); 
 	});
 });

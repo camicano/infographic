@@ -2,9 +2,11 @@ body {
 	background: url(sandpaper.png);
 	color: #3B4044;
 	font-family: 'Sintony';
-  padding: 17px;
+  padding: 5%;
+  padding-top:5px;
+  margin-top:0;
   
-  h1, h2, p {
+  h1, h2, h3, p {
     text-align: center;
     padding: 0;
     margin: 0;
@@ -17,13 +19,20 @@ body {
   h2 {
     font-size: 20px;
   }
-  div {
-  display: inline-block;
+  h3 {
+    font-size: 30px;
+  }
+  
+  .div {
+    display: inline-block;
+    width: 1000px;
+    padding: 20px;
+    margin-left: 5%;
   }
 }
 
 .header{
-  margin-bottom: 20px;
+  float: left;
   p {
     color: #E27A3F;
   }
@@ -31,9 +40,8 @@ body {
 
 
 #menu {
-  margin: 10px;
   float: right;
-  padding-left: 20px;
+
   span {
     text-align: center;
     font-size: 18px;
@@ -69,50 +77,29 @@ body {
 }
 
 #p-count{
-  width: 340px;
+  width: 370px;
   float: right;
 }
 
 #r-count{
-  width: 490px;
+  width: 475px;
   float: right;
 }
 
-#year {
-	font-size: 10px;
-	width: 35px;
-}
-
-#year-axis {
-	display: inline;
-}
-
-.right {
-	width: 25%;
-}
-
-.left {
-	width: 48%;
-}
-
-.right {
-	float: right;
-}
-
 .bar_total {
-	fill: blue;
+	fill: #45B29D;
 }
 
 .bar_total:hover {
-	fill: darkblue;
+	fill: #389180;
 }
 
 .bar_refugee {
-	fill: orange;
+	fill: #E5C149;
 }
 
 .bar_refugee:hover {
-	fill: orangered;
+	fill: #DF5A49;
 }
 
 .d3-tip {
@@ -181,17 +168,25 @@ body {
   left: 0;
 }
 
-#production{
-  width: 100%;
-}
-
 #production div{
-  width: 100px;
+  display: inline-block;
 }
 
+#prod-legend {
+  display: inline;
+  width: 1000px;
+  padding-left: 30%;
+}
 
+#prod-legend div {
+  width: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px; 
+}
 
-
+.axis {
+  font-size: 10px;
+}
 
 
 

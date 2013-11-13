@@ -65,30 +65,11 @@ Then(/^there should be a users counter for displaying total users$/) do
 end
 
 Then(/^there should be a title$/) do
-  assert find('#title').text == "White Paradise:" 
+  assert find('#title').text == "White Paradise" 
 end
 
 Then(/^there should be a menu$/) do
-  assert find('nav')
+  assert find('#menu')
 end
 
-Then(/^for each event on the year there should be a div displaying the synopsis$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^there should be an axis with the year and one top production\(in tons\) and below there should be refugees \(in people\)\.$/) do
-  assert find('') 
-end
-
-When(/^a new year$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^there should be a new bar chart for production the bar chart should be divided into (\d+) countries$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^there should be a new refugee bar chart$/) do
-  pending # express the regexp above with the code you wish you had
-end
 

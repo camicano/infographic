@@ -18,9 +18,13 @@ i.events.create(title: "Carlos leader captured: 4 of February 1987", synopsis: "
 
 j = Year.create(year: 1988, user_rate: 660)
 j.cocaine_production = CocaineProduction.new(total: 750, bolivia: 225, colombia: 55, peru: 470)
+j.events.create(title: "Andres Pastrana Kidnapped: 18 of January 1988", synopsis: "Andres Pastrana, a candidate for Mayor in Bogota, was kidnapped by the Extraditables (the group of most wanted criminals for extradition). He was chosen for being member of one of the most traditional political families in the country. His father, Misael Pastrana was president from 1970-1974 and Andres was elected president in 1998. The Extraditables wanted to negotiate the freedom of Andres for the elimination of extradition. The 25 of January he was rescued by the Colombian Army.")
+j.events.create(title: "Carlos Mauro Hoyos Assesination: 25 of January 1988", synopsis: "Carlos Mauro Hoyos was the General Prosecutor of Colombia. During his time in office, he prosecuted several cases of narcotrafic and narco related violence. He was kidnapped by the Extraditables (the group of most wanted criminals for extradition) on the same day as Andres Pastrana. As retaliation to the rescue of Andres Pastrana, he was murdered by the extraditables.")
+j.events.create(title: "Alvaro Gomez Hurtado: 19 of may 1988", synopsis: "The Conservative politician Alvaro Gomez Hurtado, was kidnapped by M19. At the beginning, the Guerrilla didn't recognize authority for the crime. Once M19 accepted the authority of the kidnapping, by asking for the beginning of a peace negotiation. This negotiation was the root for the new constitution in 1991.")
 
 k = Year.create(year: 1989, user_rate: 576)
 k.cocaine_production = CocaineProduction.new(total: 755, bolivia: 220, colombia: 70, peru: 465)
+k.events.create(title: "The Avianca Airplane bombing")
 
 l = Year.create(year: 1990, user_rate: 447)
 l.cocaine_production = CocaineProduction.new(total: 775, bolivia: 220, colombia: 65, peru: 490)
