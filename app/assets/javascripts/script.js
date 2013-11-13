@@ -374,8 +374,14 @@ function intro() {
     	$('#introd').addClass('animated fadeInDown').show();
     }, 9000);
 
+    setTimeout
+
     setTimeout(function(){
-		$('#intro').hide();
+		$('#introe').addClass('animated fadeInDown').show();
+    }, 12000);
+
+    $('#introe').on('click', function(){
+    	$('#intro').hide();
 		$('#introb').hide();
 		$('#introc').hide();
 		$('#introd').hide();
@@ -384,8 +390,8 @@ function intro() {
 		$('#production').hide();
 		$('#by-year').hide();
 		$('#total-content').addClass('animated fadeInDown').show();
-    	firstAjax();
-    }, 15000);
+    	firstAjax();	
+    });
 }
 
 
@@ -393,8 +399,7 @@ function intro() {
 // #############ONLOAD FUNCTION############
 // ########################################
 $(function(){
-	// $('#total-content').hide();
-	$('#about-us').show();
+	$('#total-content').hide();
 	$('#graph').hide();
 	$('#production').hide();
 	$('#by-year').hide();
@@ -402,7 +407,8 @@ $(function(){
 	$('#introb').hide();
 	$('#introc').hide();
 	$('#introd').hide();
-	// intro();
+	$('#introe').hide();
+	intro();
 
 	productionDiv();
 	prodLegend();
