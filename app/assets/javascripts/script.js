@@ -96,12 +96,13 @@ function productionUseAxis(data){
 function flashEvents(data){
 	canvas2.append("text")
 		.attr("y", -20)
-		.attr("x", 300)
-		.attr("class", "event_text")
+		.attr("x", 200)
+		.attr("class", "event_text2")
 		.text(data.event_title)
 		.on('click', function(d) { yearSummaryView(data); })
 	  .transition()
 		.duration(500)
+		.attr("class", "event_text")
 		.attr("y", 100)
 	  .transition()
 		.delay(1500)
@@ -157,7 +158,7 @@ function yearSummaryView(data){
         $('#idp-year').empty().append(data.refugee_rate || "not available");
         $('#prod-year').empty();
         $.each(data.events, function(i, data){
-        	$('#event-year').empty().append('<h2>Most relevant events</h2><br><p>'+ data.synopsis +'</p><br>');
+        	$('#event-year').empty().append('<h2>'+data.title+'</h2><p>'+ data.synopsis +'</p><br>');
         });
 
 		data = [{"value": data.cocaine_production.bolivia, "label": "Bol"}, 
@@ -364,21 +365,21 @@ function intro() {
 
     setTimeout(function(){
     	$('#introb').addClass('animated fadeInDown').show();
-    }, 3000);
+    }, 100);
 
     setTimeout(function(){
     	$('#introc').addClass('animated fadeInDown').show();
-    }, 6000);
+    }, 200);
 
     setTimeout(function(){
     	$('#introd').addClass('animated fadeInDown').show();
-    }, 9000);
+    }, 300);
 
     setTimeout
 
     setTimeout(function(){
 		$('#introe').addClass('animated fadeInDown').show();
-    }, 12000);
+    }, 3000);
 
     $('#introe').on('click', function(){
     	$('#intro').hide();

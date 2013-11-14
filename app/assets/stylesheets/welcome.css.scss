@@ -137,6 +137,10 @@ body {
   font-size: 14px;
 }
 
+.event_text2 {
+  font-size: 18px;
+}
+
 .event_text:hover {
   fill: #E27A3F;
   cursor: pointer;
@@ -266,8 +270,10 @@ img {
   margin-top: 100px;
 }
 
+#green {
+  color: #45B29D;
+}
 
-
-
-
-
+#yellow {
+  color: #E5C149;
+}
