@@ -12,7 +12,7 @@ a.events.create(title: "Justice Palace Siege", synopsis: "the 6 of November the 
 	kidnapped Judges, personnel and visitors of the building for 2 days. The Colombian army 
 	responded to the attack with heavy weaponry and the center of Bogota became a battlefield 
 	between the guerrilla and the militaries. As a temporary solution, the government bans any 
-	information about the siege in the media and orders the transmission of a soccer match. 
+	information about the siege in the media and orders the transmission of a soccer match.
 	The event left a total of 94 deaths and 11 desaparecidos (there is no clarity about what 
 	happen to this people) and the major destruction of the building. Most of the judges and 
 	members of the supreme courts were killed in the siege.")
@@ -90,7 +90,7 @@ l.events.create(title: "The Seven Ballot movement", synopsis: "The Seven Ballot 
 	student-based proposal to changing the constitution of Colombia. Each person who wishes to change the constitution 
 	put an additional ballot on the congress election. The vote was not considered legal, but since there were more than 
 	2 million votes to change the constitution, the government recognized the exercise as legitimate.")
-l.events.create(title: "Cesar Gaviria is elected president")
+l.events.create(title: "Cesar Gaviria is elected president", synopsis: '')
 l.events.create(title: "Journalist kidnaping operation by the Extraditables", synopsis: "Francisco Santos, the chief 
 	editor of El Tiempo the largest newspaper in Colombia, Maruja Pachon journalist and Sister in Law of Luis Carlos Galan 
 	and Diana Turbay were kidnaped at the same time. The tree journalists were members of traditional political families. 
@@ -123,11 +123,11 @@ n.events.create(title: "Pablo Escobar escapes from La Catedral", synopsis: "Afte
 o = Year.create(year: 1993, user_rate: 331, event_title: "93 St Bomb. Pablo Escobar was killed.")
 o.cocaine_production = CocaineProduction.new(total: 720, bolivia: 240, colombia: 65, peru: 415)
 o.events.create(title: "93 St Bomb", synopsis: "Pablo Escobar exploited a Car bomb in the crowded 93 Street shopping mall")
-o.events.create(title: "Pablo Escobar was killed.")
+o.events.create(title: "Pablo Escobar was killed.", synopsis: '')
 
 p = Year.create(year: 1994, user_rate: 323, event_title: "Ernesto Samper is elected president. Andres Escobar was murdered")
 p.cocaine_production = CocaineProduction.new(total: 745, bolivia: 255, colombia: 70, peru: 420)
-p.events.create(title: "Ernesto Samper is elected president")
+p.events.create(title: "Ernesto Samper is elected president", synopsis: '')
 p.events.create(title: "Andres Escobar was murdered", synopsis: "Andres Escobar, a member of the Colombian soccer team was 
 	murdered a 10 days after he scored a self goal in the World Cup.")
 
@@ -242,7 +242,7 @@ aa.events.create(title: "The law on Justice and Peace is Approved", synopsis: "A
 bb = Year.create(year: 2006, homicide_rate: 17479, refugee_rate: 286394, user_rate: 248, event_title: "Paramilitary demobilization")
 bb.cocaine_production = CocaineProduction.new(total: 895, bolivia: 115, colombia: 515, peru: 165)
 bb.events.create(title: "Paramilitary demobilization", synopsis: "Surrounded by polemic the peace talks with the paramilitary come 
-	into an end. The groups demobilized and surrender to justice under the Justice and Peace Law.")
+	into an end. The groups demobilized and surrender to justice under the  Justice and Peace Law.")
 
 cc = Year.create(year: 2007, homicide_rate: 17198, refugee_rate: 331238, user_rate: 221, event_title: "John Pinchao scape from 
 	kidnaping. Rodrigo Granda liberation. Assassination of the members of the Valle Assembly")
