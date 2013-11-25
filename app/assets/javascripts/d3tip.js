@@ -8,11 +8,11 @@
 // Returns a tip
 d3.tip = function() {
   var direction = d3_tip_direction,
-      offset    = d3_tip_offset,
-      html      = d3_tip_html,
-      node      = initNode(),
-      svg       = null,
-      point     = null
+    offset    = d3_tip_offset,
+    html      = d3_tip_html,
+    node      = initNode(),
+    svg       = null,
+    point     = null
 
   function tip(vis) {
     svg = getSVGNode(vis)
@@ -21,14 +21,13 @@ d3.tip = function() {
   }
 
   // Public - show the tooltip on the screen
-  //
   // Returns a tip
   tip.show = function() {
     var content = html.apply(this, arguments),
-        poffset = offset.apply(this, arguments),
-        dir     = direction.apply(this, arguments),
-        nodel   = d3.select(node), i = 0,
-        coords
+      poffset = offset.apply(this, arguments),
+      dir     = direction.apply(this, arguments),
+      nodel   = d3.select(node), i = 0,
+      coords
 
     nodel.html(content)
       .style({ opacity: 1, 'pointer-events': 'all' })

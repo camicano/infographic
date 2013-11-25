@@ -14,7 +14,14 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
-//= require_tree .
+//= require d3.js
+//= require d3tip.js
+//= require counto.js
+//= require animation.js
+//= require ajax.js
+//= require axis.js
+//= require other_functions.js
+//= require script.js
 
 
 
