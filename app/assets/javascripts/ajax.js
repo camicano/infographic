@@ -34,15 +34,15 @@ function productionDiv(){
 		dataType: 'json'
 	}).done(function(data){
 		$.each(data, function(index, element){
-			if(element.cocaine_production.total>200){
-				w = 100,                       
+		  if(element.cocaine_production.total>200){
+		    w = 100,                       
 		    h = 100,                            
-				r = 45,
+		    r = 45,
 		    color = d3.scale.category20();
 
-				data = [{"value": element.cocaine_production.bolivia, "label": "Bolivia"}, 
-								{"value": element.cocaine_production.peru, "label": "Peru"},
-								{"value": element.cocaine_production.colombia, "label": "Colombia"}];
+		    data = [{"value": element.cocaine_production.bolivia, "label": "Bolivia"}, 
+			    {"value": element.cocaine_production.peru, "label": "Peru"},
+			    {"value": element.cocaine_production.colombia, "label": "Colombia"}];
 
 		    var vis = d3.select("#prod")
 		      .append("svg:svg")              
@@ -50,31 +50,31 @@ function productionDiv(){
 		      .attr("width", w)           
 		      .attr("height", h)
 		      .append("svg:g")                
-	        .attr("transform", "translate(" + r + "," + r + ")")
+	              .attr("transform", "translate(" + r + "," + r + ")")
 
 		    var arc = d3.svg.arc()              
-	        .outerRadius(r)
-	        .innerRadius(r/2);
+	              .outerRadius(r)
+	              .innerRadius(r/2);
 		 
 		    var pie = d3.layout.pie()       
 		      .value(function(d) { return d.value; });  
 		 
 		    var arcs = vis.selectAll("g.slice") 
-	        .data(pie)                  
-	        .enter()    
-	        .append("svg:g")             
+	              .data(pie)                  
+	              .enter()    
+	              .append("svg:g")             
 		      .attr("class", "slice");  
 			 
-        arcs.append("svg:path")
-          .attr("fill", function(d, i) { return color(i); } )
-          .attr("d", arc);  
+        	    arcs.append("svg:path")
+          	      .attr("fill", function(d, i) { return color(i); } )
+                      .attr("d", arc);  
 
-        vis.append("text")
-	      	.attr("dy", ".35em")
-	      	.style("text-anchor", "middle")
-	      	.text(element.year);                          
-			}
-		});
+                    vis.append("text")
+	      	      .attr("dy", ".35em")
+	      	      .style("text-anchor", "middle")
+	      	      .text(element.year);                          
+		}
+	    });
 	});
 }
 
