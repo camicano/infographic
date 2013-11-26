@@ -1,30 +1,29 @@
 function flashEvents(data){
-	canvas2.append("text")
-		.attr("y", -20)
-		.attr("x", 200)    
-		.text(data.event_title)
-		.on('click', function(d) { yearSummaryView(data); })
-	  .transition()
-		.duration(500)
-		.attr("class", "event_text")
-		.attr("y", 100)
-	  .transition()
-		.delay(1500)
-		.duration(500)
-		.attr("x", number)
-		.attr("y", 20)
-		.text(data.year);
+  canvas2.append("text")
+    .attr("y", -20)
+    .attr("x", 200)    
+    .text(data.event_title)
+    .on('click', function(d) { yearSummaryView(data); })
+    .transition()
+    .duration(500)
+    .attr("class", "event_text")
+    .attr("y", 100)
+    .transition()
+    .delay(1500)
+    .duration(500)
+    .attr("x", number)
+    .attr("y", 20)
+    .text(data.year);
 }
 
 function yearSummaryView(data){
-	w = 110,                       
+  w = 110,                       
   h = 110,                            
   r = 45,
   color = d3.scale.category20();
   $('#by-year').show();
-	$('#graph').hide();
-		
-	$('#year-year').empty().append(data.year);
+  $('#graph').hide();
+  $('#year-year').empty().append(data.year);
   $('#hom-year').empty().append(data.homicide_rate || "not available");
   $('#idp-year').empty().append(data.refugee_rate || "not available");
   $('#prod-year').empty();
@@ -32,9 +31,9 @@ function yearSummaryView(data){
   	$('#event-year').empty().append('<h2>'+data.title+'</h2><p>'+ data.synopsis +'</p><br>');
   });
 
-	data = [{"value": data.cocaine_production.bolivia, "label": "Bol"}, 
-			    {"value": data.cocaine_production.peru, "label": "Per"},
-			    {"value": data.cocaine_production.colombia, "label": "Col"}];
+  data = [{"value": data.cocaine_production.bolivia, "label": "Bol"}, 
+	  {"value": data.cocaine_production.peru, "label": "Per"},
+	  {"value": data.cocaine_production.colombia, "label": "Col"}];
 
   var vis = d3.select("#prod-year")
     .append("svg:svg")              
